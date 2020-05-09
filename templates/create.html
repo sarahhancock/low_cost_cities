@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+        #header{
+          font-size: 40px;
+          padding-bottom: 25px;
+          padding-top: 25px;
+          font-weight: bold;
+        }
+        #description-inp{
+          height:175;
+          resize: none;
+        }
+        .error-msg{
+          font-weight: bold;
+          color: red;
+        }
+        .bold{
+          font-weight: bold;
+        }
+        .subheader{
+          font-size: 18px;
+          color: #808080;
+        }
+        .new_view{
+          font-size: 20px;
+          padding: 10px;
+          padding-top: 30px;
+          font-weight: bold;
+        }
+      </style>
+
+      <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+      <script type="text/javascript" src="{{ url_for('static', filename = 'create.js') }}"></script>
+    </head>
+
+    {% extends "layout.html" %}
+    {% block content %}
+    <body>
+      <div id = "created" class = "container">
+        
+      </div>
+
+
+      <div class = "container">
+        <div id = "header">
+          Add New City
+        </div>
+        <div class = "subheader">
+          Fill in the fields below to add a new city to the database.
+        </div>
+
+        <br>
+
+        <div id = "city" class = "row">
+          <div class = "col-md-3 bold">
+            City:
+          </div>
+          <div class = "col-md-3">
+            <input type = "text" id = "city-inp"></input>
+          </div>
+          <div class = "col-md-3 error-msg" id = "city-error-msg">
+          </div>
+        </div>
+
+        <br>
+
+        <div id = "state" class = "row">
+          <div class = "col-md-3 bold">
+            State:
+          </div>
+          <div class = "col-md-3">
+            <input type = "text" id = "state-inp" ></input>
+          </div>
+          <div class = "col-md-3 error-msg" id = "state-error-msg">
+          </div>
+        </div>
+
+        <br>
+
+        <div id = "avg_home_price" class = "row">
+          <div class = "col-md-3 bold">
+            Average Home Price: 
+          </div>
+          <div class = "col-md-3">
+            <input type = "text" id = "avg_home_price-inp" placeholder="Price in USD, i.e. 517851"></input>
+          </div>
+          <div class = "col-md-5 error-msg" id = "avg_home_price-error-msg">
+          </div>
+        </div>
+
+        <br>
+
+        <div id = "description" class = "row">
+          <div class = "col-md-3 bold">
+            Description: 
+          </div>
+          <div class = "col-md-3">
+            <textarea id = "description-inp"></textarea>
+          </div>
+          <div class = "col-md-3 error-msg" id = "description-error-msg">
+          </div>
+        </div>
+
+        <br>
+
+        <div id = "photo" class = "row">
+          <div class = "col-md-3 bold">
+            Photo URL: 
+          </div>
+          <div class = "col-md-3">
+            <input type = "text" id = "photo-inp"></input>
+          </div>
+          <div class = "col-md-3 error-msg" id = "photo-error-msg">
+          </div>
+        </div>
+
+        <br>
+
+        <div id = "features" class = "row">
+          <div class = "col-md-3 bold">
+            Features:
+          </div>
+          <div class = "col-md-3">
+              <input type = "text" id = feature1 class = "features-inp"></input>
+              <br>
+
+            <div class = "row">&nbsp</div>
+           
+              <input type = "text" id = feature2 class = "features-inp"></input>
+              <br>
+       
+            <div class = "row">&nbsp</div>
+       
+              <input type = "text" id = feature3 class = "features-inp"></input>
+              <br>
+
+          </div>
+          <div class = "col-md-3 error-msg" id = "features-error-msg">
+          </div>
+        </div>
+
+        <br>
+
+        
+
+        <div class = "row">
+          <div class = "col-md-2"></div>
+          <div class = "col-md-1"></div>
+            <button id = "submit" class="btn btn-outline-info">Add City</button>
+          </div>
+        </div>
+
+
+
+      </div>
+    </body>
+    {% endblock %}
+</html>

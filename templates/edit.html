@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+        #header{
+          font-size: 40px;
+          padding: 50px;
+          font-weight: bold;
+          background-color: #F0F8FF;
+        }
+        #description{
+          height:400px;
+          width: 400px;
+          font-size:14pt;
+          resize: none;
+        }
+      </style>
+
+      <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+      <script type="text/javascript" src="{{ url_for('static', filename = 'edit.js') }}"></script>
+      <script>
+        var city = {{city|tojson}};
+      </script>
+    </head>
+
+    {% extends "layout.html" %}
+    {% block content %}
+
+
+
+    
+    <body>
+      <div class = "container">
+        <div id = "header" class = "row">
+          Edit Description
+        </div>
+        <br>
+        <div class = "row">
+          <textarea id = "description"></textarea>
+        </div>
+        <div class = "container">
+          <button id = "submit" class="btn btn-primary">Submit</button>
+          <button id = "discard" class="btn btn-primary">Discard Changes</button>
+        </div>
+      </div>
+    </body>
+    {% endblock %}
+</html>

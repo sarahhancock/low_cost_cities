@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   	<style>
+   		#header{
+          font-size: 40px;
+          padding: 50px;
+          font-weight: bold;
+      }
+      .card {
+        display:inline-block;
+      }
+      .results{
+        padding: 20px;
+      }
+      .picture_frame {
+          width: 18rem;
+          height: 100px;
+          overflow: hidden;
+          display: flex;
+          align-items: center; /* vertical */
+          justify-content: center; /* horizontal */
+      }
+      .card_container {
+        padding: 25px;
+      }
+      .search{
+        font-weight: bold;
+      }
+      .highlight{
+        font-weight:bold;
+        color: black;
+      }
+      .subheader {
+        font-size: 20px;
+        color: #808080;
+        padding-left: 50px;
+      }
+    </style>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'search_results.js') }}"></script>
+    <script>
+    	var results = {{results|tojson}};
+      var search_term = {{search_term|tojson}};
+    </script>
+
+   </head>
+   {% extends "layout.html" %}
+   {% block content %}
+   <body>
+      <div class = "container">
+        <div id = "header" class = "row">
+          Search Results
+        </div><br>
+        <div class = "row subheader">
+          <span id = "nResults"></span>&nbsp Results Found for &nbsp<div id = "search_term"></div>
+        </div>
+        <br>
+        <div id = "results" class = "row">
+        </div>
+      </div>
+   </body>
+   {% endblock %}
+</html>
+
+
+

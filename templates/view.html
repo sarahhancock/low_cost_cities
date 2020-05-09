@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+        #header{
+          font-size: 40px;
+          padding: 50px;
+          padding-bottom: 25px;
+          padding-left: 0px;
+          font-weight: bold;
+        }
+        #avg_home_price_header{
+          font-size: 20px;  
+          font-weight: bold;
+          color: #bebebe;  
+        }
+        #avg_home_price{
+          font-size: 30px;
+          font-weight: bold;
+        }
+        #description{
+          font-size: 15px;
+          padding: 20px;
+        }
+        .edit{
+          font-size: 15px;
+          text-align: right;
+          color: #6495ED;
+        }
+        .features-header{
+          font-size: 20px;
+          font-weight: bold;
+          color: #bebebe;
+          padding-top: 3px;
+        }
+        .new-feature{
+          font-size: 18px;
+          font-weight: bold;
+          color: rgb(33, 37, 41);
+        }
+        #newFeature{
+          height: 25px;
+          font-size: 18px;
+          font-weight: bold;
+          color: rgb(33, 37, 41);
+          resize: none;
+        }
+        .mapouter{
+          position:relative;
+          display: inline-block;
+          text-align:right;
+          height:450px;
+          width:450px;
+        }
+        .gmap_canvas {
+          overflow:hidden;
+          background:none;
+          height:450px;
+          width:450px;
+        }
+        #description-editable{
+          height:200px;
+          width: 450px;
+          font-size:15px;
+          resize: none;
+        }
+        .submit_button{
+          padding-right: 30px;
+        }
+        .discard_button{
+        }
+      </style>
+      <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+      <script type="text/javascript" src="{{ url_for('static', filename = 'view.js') }}"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+      <script>
+        var city = {{city|tojson}};
+      </script>
+    </head>
+
+    {% extends "layout.html" %}
+    {% block content %}
+    <body>
+      
+      <div class = "container">
+        <div id = "header" class = "row">
+          <span id = "city"></span>, &nbsp
+          <span id = "state"></span>
+        </div>
+        <div class = "row">
+          <div class = "col-md-5">
+            <div id = "avg_home_price_header" class = "row ">
+              Average Home Price 
+            </div>
+            <div id = "avg_home_price" class = "row">
+            </div>
+            <br>
+            <div class = "features-header row">
+              Features
+              <button href = "#" type="button" class="btn btn-default">
+                <i id = 'add-feature' class='fas fa-edit edit'></i>              
+              </button>
+            </div>
+            <div class = "row">
+              <ul id = "features">
+              </ul>
+            </div>
+            <div id = "feature-sect" class = "row">
+              <div class = "col-md-1"></div>
+            </div>
+            <div id = "complete_description" class = 'row'>
+            </div>
+          </div>  
+          <div class = "col-md-1"></div>
+          <div class = "col-md-6">
+            <div class="mapouter">
+              <div class="gmap_canvas">
+                <br>
+                <iframe id = "map" width="450" height="450" class="gmap_canvas" src="https://maps.google.com/maps?q=Plano%20Texas&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+    </body>
+    {% endblock %}
+</html>

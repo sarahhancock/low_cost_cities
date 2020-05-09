@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   	<style>
+   		#header{
+          font-size: 40px;
+          padding-bottom: 25px;
+          padding-top: 25px;
+          font-weight: bold;
+      }
+      .picture_frame {
+          width: 18rem;
+          height: 100px;
+          overflow: hidden;
+          display: flex;
+          align-items: center; 
+          justify-content: center; 
+      }
+      .card_container {
+        padding: 25px;
+
+      }
+      #mission {
+        font-size: 20px;
+        color: #808080;
+      }
+      .bold {
+        font-weight: bold;
+      }
+
+    </style>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+    <script>
+    	var cities = {{cities|tojson}};
+    </script>
+
+   </head>
+   {% extends "layout.html" %}
+   {% block content %}
+   <body>
+      <div class = "container">
+        <div id = "header" class = "row">
+          Best Low-Cost Cities
+        </div>
+        <div class = "row" id = "mission">
+          <div class = "col">
+            <div class = "row">Find a new city to call home where you can actually &nbsp<span class = "bold"> afford a home.</span> </div>
+          </div>
+        </div><br><br>
+        <div id = "results" class = "row">
+
+        </div>
+      </div>
+   </body>
+   {% endblock %}
+</html>
+
+
+
